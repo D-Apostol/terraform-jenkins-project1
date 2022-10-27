@@ -4,20 +4,11 @@ pipeline {
         "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
     }
 
-    parameters {
-        string(name: 'CONSUL_STATE_PATH', defaultValue: 'networking/state/globo-primary', description: 'Path in Consul for state data')
-        string(name: 'WORKSPACE', defaultValue: 'development', description:'workspace to use in Terraform')
-    }
-
     environment {
         TF_HOME = tool('terraform')
         TF_INPUT = "0"
         TF_IN_AUTOMATION = "TRUE"
-        //TF_VAR_consul_address = "host.docker.internal"
         TF_LOG = "WARN"
-        //CONSUL_HTTP_TOKEN = credentials('networking_consul_token')
-        //AWS_ACCESS_KEY_ID = credentials('aws_access_key')
-        //AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
         PATH = "$TF_HOME:$PATH"
     }
 
