@@ -1,11 +1,11 @@
 pipeline {
     agent any
     tools {
-        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
+        //"org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
     }
 
     environment {
-        TF_HOME = tool('terraform')
+        //TF_HOME = tool('terraform')
         TF_INPUT = "0"
         TF_IN_AUTOMATION = "TRUE"
         TF_LOG = "WARN"
